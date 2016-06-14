@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
+    var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
@@ -30,6 +30,41 @@ $(document).ready(function(){
 
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
+
   });
 
+  // $('span').mouseover(function() {
+  //   $(this).css({ 'background': 'blue'});
+  // });
+  $(".interact").on("click", function(event){
+  var distanceCheck = function(x1, x2, y1, y2){
+    var a = x1-x2;
+    var b = y1-y2;
+
+    return Math.sqrt(a*a + b*b);
+  }
+  for(var i = 0; i < window.dancers.length; i++){
+    for(var j = 0; j < window.dancers.length; j++){
+      if(i === j){
+        continue;
+      } else {
+        var distance = distanceCheck(window.dancers[i].top,window.dancers[j].top, window.dancers[i].left, window.dancers[j].left);
+        if(distance > 20){
+          var temp = window.dancers[i].top;
+          window.dancers[i].top = window.dancers[j].top;
+          window.dancers[j].top = temp;
+          var temp1 = window.dancers[i].left;
+          window.dancers[i].left = window.dancers[j].left;
+          window.dancers[j].left = temp1;
+        }
+      }
+    }
+  }
+  });
 });
+
+  $(".lineUpButton").on("click", function(event){
+    for(var i=0; i<window.dancers.length; i++){
+      window.dancers[i].setPosition(100, 100*i);
+    }
+  });
