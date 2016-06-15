@@ -16,5 +16,4 @@ var TunaDancer = function(top, left, timeBetweenSteps){
      Dancer.prototype.step.call(this);
     this.$node.toggle();
 
-
   };

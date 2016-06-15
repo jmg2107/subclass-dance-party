@@ -37,10 +37,16 @@ $(document).ready(function(){
 });
 
   $("body").mouseover(function() {
-    $(this).find("span").css({ 'opacity' : '0.4'});
+    $(this).find(".TunaDancer").css({ 'opacity' : '0.4'});
   });
   $("body").mouseout(function() {
-    $(this).find("span").css({ 'opacity': '1.0'});
+    $(this).find(".TunaDancer").css({ 'opacity': '1.0'});
+  });
+  $("body").mouseenter(function() {
+    $(this).find(".Biscuits").animate({ 'height' : 'toggle', 'position' : 'relative'}, 'fast');
+  });
+  $("body").mouseleave(function() {
+    $(this).find(".Biscuits").animate({ 'height': 'toggle', 'position' : 'relative'}, 'fast');
   });
   // we want to search body and find this---> span
 
