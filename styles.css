@@ -36,8 +36,8 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 .DoodleDancer{
-  width: 9%;
-  height: 50%;
+  width: 10%;
+  height: 31%;
   border-radius:10px;
   background-image: url(Image/DoodleDancer.png);
   background-repeat: no-repeat;

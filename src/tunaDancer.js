@@ -2,6 +2,7 @@ var TunaDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   // Call methods will call immediately
   this.$node = $('<span class="TunaDancer"></span>');
+  this.setPosition(this.top, this.left);
 
 };
   //  var TunaDancer = makeDancer(top, left, timeBetweenSteps);
@@ -15,8 +16,5 @@ var TunaDancer = function(top, left, timeBetweenSteps){
      Dancer.prototype.step.call(this);
     this.$node.toggle();
 
-    this.setPosition(this.top, this.left);
-  };
-  TunaDancer.prototype.lineUp = function(){
 
   };

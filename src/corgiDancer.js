@@ -2,6 +2,7 @@ var CorgiDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   // Call methods will call immediately
   this.$node = $('<span class="CorgiDancer"></span>');
+  this.setPosition(this.top, this.left);
 
 };
   //  var CorgiDancer = makeDancer(top, left, timeBetweenSteps);
@@ -15,11 +16,8 @@ var CorgiDancer = function(top, left, timeBetweenSteps){
      Dancer.prototype.step.call(this);
     this.$node.slideToggle();
 
-    this.setPosition(this.top, this.left);
   };
-  CorgiDancer.prototype.lineUp = function(){
 
-  };
     // toggle() is a jQuery method to show/hide the <span> tag.
     // See http://api.jquery.com/category/effects/ for this and
     // other effects you can use on a jQuery-wrapped html tag.

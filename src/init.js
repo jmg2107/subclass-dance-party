@@ -33,10 +33,24 @@ $(document).ready(function(){
 
   });
 
-  // $('span').mouseover(function() {
-  //   $(this).css({ 'background': 'blue'});
-  // });
-  $(".interact").on("click", function(event){
+
+});
+
+  $("body").mouseover(function() {
+    $(this).find("span").css({ 'opacity' : '0.4'});
+  });
+  $("body").mouseout(function() {
+    $(this).find("span").css({ 'opacity': '1.0'});
+  });
+  // we want to search body and find this---> span
+
+  $(".lineUpButton").on("click", function(event){
+    for(var i=0; i<window.dancers.length; i++){
+      window.dancers[i].setPosition(100, 100*i);
+    }
+  });
+
+  $(".boogieDown").on("click", function(event){
   var distanceCheck = function(x1, x2, y1, y2){
     var a = x1-x2;
     var b = y1-y2;
@@ -49,22 +63,11 @@ $(document).ready(function(){
         continue;
       } else {
         var distance = distanceCheck(window.dancers[i].top,window.dancers[j].top, window.dancers[i].left, window.dancers[j].left);
-        if(distance > 20){
-          var temp = window.dancers[i].top;
-          window.dancers[i].top = window.dancers[j].top;
-          window.dancers[j].top = temp;
-          var temp1 = window.dancers[i].left;
-          window.dancers[i].left = window.dancers[j].left;
-          window.dancers[j].left = temp1;
+        if(distance >= 20){
+          window.dancers[i].setPosition($("body").height() * Math.random(), $("body").width() * Math.random());
+          window.dancers[j].setPosition($("body").height() * Math.random(), $("body").width() * Math.random());
         }
       }
     }
   }
-  });
-});
-
-  $(".lineUpButton").on("click", function(event){
-    for(var i=0; i<window.dancers.length; i++){
-      window.dancers[i].setPosition(100, 100*i);
-    }
   });
